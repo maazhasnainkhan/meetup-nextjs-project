@@ -1,24 +1,23 @@
-import { MongoClient } from "mongodb";
-
-// POST api/new-meetup
+// Simple API endpoint that simulates adding a meetup
+// In a real app, this would save to a database
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const data = req.body;
 
-    const client = await MongoClient.connect(
-      "mongodb+srv://maaz_hk:03032855049hK+@cluster0.lujnjhe.mongodb.net/meetups?retryWrites=true&w=majority&appName=Cluster0"
-    );
+    // Simulate processing time
+    await new Promise(resolve => setTimeout(resolve, 500));
 
-    const db = client.db();
-    const meetupsCollection = db.collection("meetups");
+    console.log("New meetup data received:", data);
 
-    const result = await meetupsCollection.insertOne(data);
-
-    console.log(result);
-
-    client.close();
-
-    res.status(201).json({ message: "Meetup Insterted!" });
+    res.status(201).json({ 
+      message: "Meetup added successfully!",
+      meetup: {
+        id: `m${Date.now()}`,
+        ...data
+      }
+    });
+  } else {
+    res.status(405).json({ message: "Method not allowed" });
   }
 }
