@@ -4,5 +4,69 @@
 
 .detail img {
     width: 100%;
-    
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.detail h1 {
+    margin: 1rem 0;
+    color: #2c292b;
+}
+
+.detail address {
+    font-style: normal;
+    font-size: 1.1rem;
+    color: #666;
+    margin: 1rem 0;
+}
+
+.detail p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    margin: 1.5rem 0;
+    text-align: left;
+}
+
+.actions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.actions button {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.editButton {
+    color: white;
+    background-color: #0070f3;
+    border: 1px solid #0070f3;
+}
+
+.editButton:hover,
+.editButton:active {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.deleteButton {
+    color: white;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.deleteButton:hover,
+.deleteButton:active {
+    background-color: #c82333;
+    border-color: #c82333;
 }

@@ -25,6 +25,9 @@
 .actions {
   margin-top: 1rem;
   text-align: right;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
 }
 
 .actions button {
@@ -42,4 +45,16 @@
 .actions button:active {
   background-color: #a50e48;
   border-color: #a50e48;
+}
+
+.cancelButton {
+  background-color: #ccc !important;
+  color: #333 !important;
+  border-color: #ccc !important;
+}
+
+.cancelButton:hover,
+.cancelButton:active {
+  background-color: #999 !important;
+  border-color: #999 !important;
 }

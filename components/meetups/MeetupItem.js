@@ -4,8 +4,19 @@ import classes from "./MeetupItem.module.css";
 
 function MeetupItem(props) {
   const router = useRouter();
+  
   function showDetailsHandler() {
     router.push(`/${props.id}`);
+  }
+
+  function editHandler() {
+    router.push(`/edit-meetup/${props.id}`);
+  }
+
+  function deleteHandler() {
+    if (window.confirm('Are you sure you want to delete this meetup?')) {
+      props.onDelete(props.id);
+    }
   }
   
   return (
@@ -20,6 +31,8 @@ function MeetupItem(props) {
         </div>
         <div className={classes.actions}>
           <button onClick={showDetailsHandler}>Show Details</button>
+          <button onClick={editHandler} className={classes.editButton}>Edit</button>
+          <button onClick={deleteHandler} className={classes.deleteButton}>Delete</button>
         </div>
       </Card>
     </li>
