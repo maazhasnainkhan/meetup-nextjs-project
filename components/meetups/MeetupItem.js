@@ -1,24 +1,7 @@
-import { useRouter } from "next/router";
-import Card from "../ui/Card";
-import classes from "./MeetupItem.module.css";
+import Card from '../ui/Card';
+import classes from './MeetupItem.module.css';
 
 function MeetupItem(props) {
-  const router = useRouter();
-  
-  function showDetailsHandler() {
-    router.push(`/${props.id}`);
-  }
-
-  function editHandler() {
-    router.push(`/edit-meetup/${props.id}`);
-  }
-
-  function deleteHandler() {
-    if (window.confirm('Are you sure you want to delete this meetup?')) {
-      props.onDelete(props.id);
-    }
-  }
-  
   return (
     <li className={classes.item}>
       <Card>
@@ -30,9 +13,7 @@ function MeetupItem(props) {
           <address>{props.address}</address>
         </div>
         <div className={classes.actions}>
-          <button onClick={showDetailsHandler}>Show Details</button>
-          <button onClick={editHandler} className={classes.editButton}>Edit</button>
-          <button onClick={deleteHandler} className={classes.deleteButton}>Delete</button>
+          <button>Show Details</button>
         </div>
       </Card>
     </li>
